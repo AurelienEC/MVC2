@@ -17,6 +17,7 @@ catch(Exception $e)
 // Récupération des 10 derniers messages
 $reponse = $bdd->query('SELECT id, titre, contenu, date_creation FROM billets ORDER BY ID DESC LIMIT 0, 10');
 
+require('indexView.php');
 
 ?>
 
