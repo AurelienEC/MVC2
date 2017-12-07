@@ -1,0 +1,259 @@
+/*====================
+= ÉLÉMENTS PRINCIPAUX
+====================*/
+
+body
+{ 
+    margin: 0;
+    padding: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.flex
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-fluid
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+h1, h2, h3, h4,label
+{
+    color: #F8C68C;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+     /*--------------------
+    = Fonds transparent
+    --------------------*/
+#container_middle, .formulaire, .blog, .admin
+{
+     background-color: rgba(0, 0, 0, 0.5);
+}
+
+ /*--------------------
+    = Formulaires
+    --------------------*/
+.formulaire
+{
+    width: 40%;
+    margin: auto;
+}
+
+.alert, form
+{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input
+{  
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+
+.form-control
+{
+    width: 100%;
+    background-color: #FEFBE3;
+}
+
+.page-item a
+{
+    background-color: #7D0000 !important;
+    border: #7D0000;
+    color: #F8C68C;
+    width: 125px;
+}
+
+.btn-dark
+{
+    background-color: #7D0000;
+    border: #7D0000;
+    color: #F8C68C;
+    width: 125px;
+}
+
+.btn-dark:hover
+{
+    background-color: #E67300;
+    color: #F8C68C;
+}
+
+.pagination
+{
+    padding-left: 0px !important;
+}
+
+.page-link:hover
+{
+    background-color: #E67300 !important;
+    color: #F8C68C;
+}
+
+button
+{
+    margin-bottom: 15px;
+
+}
+
+/*====================
+= COULEURS
+====================*/
+
+    /*--------------------
+    = Textes
+    --------------------*/
+/*
+
+Titres et textes de boutons : #F8C68C;
+Champs des formulaires : #FEFBE3;
+Boutons, bordures, navigation : #7D0000;
+Boutons, bordures hover : #E67300;
+
+#4E1000;
+
+
+
+*/
+
+/*====================
+= HEADER
+====================*/
+
+    /*--------------------
+    = Navigation
+    --------------------*/
+
+.navbar-light
+{
+    background-color: #4E1000;
+}
+
+.navbar-brand
+{
+    color: #F8C68C !important;
+}
+
+ul
+{
+    padding-left: 150px !important;
+}
+
+.nav-link
+{
+    color: #F8C68C !important;
+}
+
+/*====================
+= PAGE BIENVENUE
+====================*/
+
+#desert
+{
+    background: url(img/desert.jpg) no-repeat center fixed; 
+}
+
+#container_middle
+{
+    width: 10%;
+    min-width: 300px;
+    margin-top: 30%;  
+}
+
+.bienvenue
+{
+    font-size: 3.2em;
+}
+
+/*====================
+= PAGE INSCRIPTION
+====================*/
+
+#agriculture
+{
+    background: url(img/agriculture.jpg) no-repeat center fixed; 
+}
+
+/*====================
+= PAGE DE CONNEXION
+====================*/
+
+#vintage
+{
+background: url(img/vintage.jpg) no-repeat center fixed; 
+
+}
+
+/*====================
+= PAGE D'ADMINISTRATION
+====================*/
+
+#maldives
+{
+background: url(img/maldives.jpg) no-repeat center fixed; 
+
+}
+
+/*====================
+= PAGE DU BLOG
+====================*/
+
+#new-york
+{
+background: url(img/new-york.jpg) no-repeat center fixed; 
+}
+
+#logo
+{
+    width: 100%;
+    height: 200px;
+}
+
+.news p
+{
+    background-color:#CCCCCC;
+    margin-top:0px;
+}
+.news
+{
+    width: 90%;
+    margin:auto;
+}
+
+/*====================
+= PAGE DES COMMENTAIRES
+====================*/
+
+#taxi-cab
+{
+background: url(img/taxi-cab.jpg) no-repeat center fixed; 
+}
+
+a
+{
+    text-decoration: none;
+}
+
+p
+{
+    color: white;
+}
+
+.card
+{
+    background-color: rgba(254, 251, 0227, 0.5);
+}
+
+
