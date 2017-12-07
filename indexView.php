@@ -30,24 +30,22 @@
 
 	// Affichage de chacun des billets
 
-				while ($donnees = $reponse->fetch())
+				while ($donnees = $req->fetch())
 				{
 				?>
 				<div class="news">
 					
-					<h3><?php echo 'Le : ' . htmlspecialchars($donnees['date_creation']) . ' ' . htmlspecialchars($donnees['titre']) ?></h3>
+					<h3><?= 'Le : ' . htmlspecialchars($donnees['date_creation']) . ' ' . htmlspecialchars($donnees['titre']) ?></h3>
 				</div>
 
-				<?php
-				?> 
+				
 
 				<div class="news">		
 				
 					<p>
-						<?php
-						echo nl2br(htmlspecialchars($donnees['contenu']))
+						<?= nl2br(htmlspecialchars($donnees['contenu']))
 						?>
-						 <br /><a href="commentaires.php?billet=<?php echo $donnees['id']; ?>">Commentaires</a></p>
+						 <br /><a href="commentaires.php?billet=<?= $donnees['id'] ?>">Commentaires</a></p>
 
 				</div>
 
