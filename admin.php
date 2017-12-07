@@ -77,13 +77,13 @@ else
 
 
 		      	<div class="form-group">  
-		       	 	<label for="titre">Titre de l'article</label><br />
-		        	<textarea class="form-control" type="text" name="titre" id="titre" rows="1" /></textarea>
+		       	 	<label for="title">Titre de l'article</label><br />
+		        	<textarea class="form-control" type="text" name="title" id="title" rows="1" /></textarea>
 		        	
 				</div>
 				<div class="form-group">  
-		       	 	<label for="contenu">Contenu de l'article</label><br />
-		        	<textarea class="form-control" type="text" name="contenu" id="contenu" rows="3" /></textarea>
+		       	 	<label for="content">Contenu de l'article</label><br />
+		        	<textarea class="form-control" type="text" name="content" id="content" rows="3" /></textarea>
 				</div>
 
 				<div class="form-group">  
@@ -106,14 +106,14 @@ else
 			<?php
 
 // Récupération des 10 derniers messages
-			$reponse = $bdd->query('SELECT titre, contenu FROM billets ORDER BY ID DESC LIMIT 0, 10');
+			$reponse = $bdd->query('SELECT title, content FROM posts ORDER BY ID DESC LIMIT 0, 10');
 
 
 // Affichage de chaque message
 
-			while ($donnees = $reponse->fetch())
+			while ($data = $reponse->fetch())
 			{
-				echo 'Le :' . htmlspecialchars($donnees['date_creation']) . '<h4>' . htmlspecialchars($donnees['titre']) . ' </h4></br><p> ' . htmlspecialchars($donnees['contenu']) . '</p></br>';
+				echo 'Le :' . htmlspecialchars($data['date_creation']) . '<h4>' . htmlspecialchars($data['title']) . ' </h4></br><p> ' . htmlspecialchars($data['content']) . '</p></br>';
 			}
 	
 // Fin de la boucle des messages, on libère le curseur

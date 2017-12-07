@@ -1,19 +1,3 @@
-<?php
-session_start();
-
-// Connexion à la BDD
-
-include('bdd.php');
-
-// Récupération du dernier billet
-
-$req = $bdd->prepare('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM billets WHERE id = ?');
-$req->execute(array($_GET['billet']));
-$donnees = $req->fetch();
-
-?>
-
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -31,13 +15,12 @@ $donnees = $req->fetch();
 
 			<div class="news">
 			    <h3>
-			        <?php echo htmlspecialchars($donnees['titre']); ?>
-			        <em>le <?php echo $donnees['date_creation_fr']; ?></em>
+			        <?= htmlspecialchars($data['title']) ?>
+			        <em>le <?= $data['date_creation_fr'] ?></em>
 			    </h3>
 			    
 			    <p>
-			    <?php
-			    echo nl2br(htmlspecialchars($donnees['contenu']));
+			    <?= nl2br(htmlspecialchars($data['content']))
 			    ?>
 			    </p>
 			</div>
@@ -45,7 +28,7 @@ $donnees = $req->fetch();
 
 <!-- Récupération du login dans un input masqué -->	
 
-	    	<input type="hidden" name="login" value="<?php echo $_SESSION['login']; ?>">
+	    	<input type="hidden" name="login" value="<?= $_SESSION['login'] ?>">
 
 	    	<h3 class="text-center">Les commentaires associés à ce billet</h3>
 
@@ -57,33 +40,22 @@ $donnees = $req->fetch();
 
 						<?php
 
-// Récupération des 10 derniers messages
-						$reponse = $bdd->query('SELECT commentaire, auteur FROM commentaires ORDER BY ID DESC LIMIT 0, 10');
-//						$reponse = $bdd->query('SELECT commentaire, auteur FROM commentaires ORDER BY ID DESC LIMIT 0, 10 WHERE id_billet = $_GET['id_billet]);
-
-
-
 // Affichage de chaque message
 
-						while ($comment = $reponse->fetch())
+						while ($comment = $comments->fetch())
 						{
 							echo '<div class="card p-3">
 										<blockquote class="card-block card-blockquote">
-											<p>' . htmlspecialchars($comment['commentaire']) . ' : ' . htmlspecialchars($comment['auteur']) . '
+											<p>' . htmlspecialchars($comment['comment']) . ' : ' . htmlspecialchars($comment['author']) . '
 											</p>
 											<footer>
-												<small class="text-muted">Commentaire de <cite title="Source Title">' . htmlspecialchars($comment['auteur']) . '</cite></small>
+												<small class="text-muted">Commentaire de <cite title="Source Title">' . htmlspecialchars($comment['author']) . '</cite></small>
 										        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
 										        </p>
 										    </footer>
 										</blockquote>
 									</div>';	
 						}
-
-
-// Fin de la boucle des messages, on libère le curseur
-
-						$reponse->closeCursor();
 
 						?>				
 					</div>
@@ -99,15 +71,16 @@ $donnees = $req->fetch();
 
 
 	    	<form class="alert" action="commentaires_post.php" method="post">
-	    		<input type="hidden" name="id_billet" value="<?= $donnees['id'];?>" />
+	    	<!-- <form class="alert" action="commentaires_post.php" method="post"> -->
+	    		<input type="hidden" name="id" value="<?= $data['id']; ?>" />
 		      	<div class="form-group">  
 		       	 	<label for="commentaire">Commentaire</label><br />
-		        	<textarea class="form-control" type="text" name="commentaire" id="commentaire" rows="1" /></textarea>
+		        	<textarea class="form-control" type="text" name="comment" id="comment" rows="1" /></textarea>
 		        	
 				</div>
 				<div class="form-group">  
-		       	 	<label for="contenu">Auteur</label><br />
-		        	<textarea class="form-control" type="text" name="auteur" id="auteur" rows="3" /></textarea>
+		       	 	<label for="content">Auteur</label><br />
+		        	<textarea class="form-control" type="text" name="author" id="author" rows="3" /></textarea>
 				</div>
 
 				 <div class="flex">

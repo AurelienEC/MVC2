@@ -9,8 +9,8 @@ include('bdd.php');
 
 // Insertion du message à l'aide d'une requête préparée
 
-$req = $bdd->prepare('INSERT INTO billets (titre, contenu) VALUES(?, ?)');
-$req->execute(array($_POST['titre'], $_POST['contenu']));
+$req = $bdd->prepare('INSERT INTO posts (title, content) VALUES(?, ?)');
+$req->execute(array($_POST['title'], $_POST['content']));
 
 // Redirection
 header('Location: admin.php');
