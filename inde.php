@@ -3,7 +3,7 @@
 
 require('model.php');
 
-$req = getPost();
+$req = getPosts();
 
 require('indexView.php');
 

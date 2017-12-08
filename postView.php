@@ -16,11 +16,11 @@
 			<div class="news">
 			    <h3>
 			        <?= htmlspecialchars($data['title']) ?>
-			        <em>le <?= $data['date_creation_fr'] ?></em>
+			        <em>le <?= $post['created_at_fr'] ?></em>
 			    </h3>
 			    
 			    <p>
-			    <?= nl2br(htmlspecialchars($data['content']))
+			    <?= nl2br(htmlspecialchars($post['content']))
 			    ?>
 			    </p>
 			</div>
@@ -46,10 +46,10 @@
 						{
 							echo '<div class="card p-3">
 										<blockquote class="card-block card-blockquote">
-											<p>' . htmlspecialchars($comment['comment']) . ' : ' . htmlspecialchars($comment['author']) . '
+											<p>' . htmlspecialchars($comment['author']) . ' : ' . htmlspecialchars($comment['comment_date_fr']) . '
 											</p>
 											<footer>
-												<small class="text-muted">Commentaire de <cite title="Source Title">' . htmlspecialchars($comment['author']) . '</cite></small>
+												<small class="text-muted">Commentaire de <cite title="Source Title">' . htmlspecialchars($comment['comment']) . '</cite></small>
 										        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
 										        </p>
 										    </footer>
@@ -72,7 +72,7 @@
 
 	    	<form class="alert" action="commentaires_post.php" method="post">
 	    	<!-- <form class="alert" action="commentaires_post.php" method="post"> -->
-	    		<input type="hidden" name="id" value="<?= $data['id']; ?>" />
+	    		<input type="hidden" name="id" value="<?= $comment['id']; ?>" />
 		      	<div class="form-group">  
 		       	 	<label for="commentaire">Commentaire</label><br />
 		        	<textarea class="form-control" type="text" name="comment" id="comment" rows="1" /></textarea>

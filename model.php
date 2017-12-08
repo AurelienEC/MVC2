@@ -1,9 +1,9 @@
 <?php
-function getPost()
+function getPosts()
 {
 	$db = dbConnect();
 
-	$req = $db->query('SELECT id, titre, contenu, date_creation FROM billets ORDER BY ID DESC LIMIT 0, 10');
+	$req = $db->query('SELECT id, title, content, created_at FROM posts ORDER BY ID DESC LIMIT 0, 10');
 
 	return $req;
 }
@@ -13,7 +13,7 @@ function getPost($postId)
 {
     $db = dbConnect();
 
-    $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(created_date, \'%d/%m/%Y à %Hh%imin%ss\') AS created_date_fr FROM posts WHERE id = ?');
+    $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(created_at, \'%d/%m/%Y à %Hh%imin%ss\') AS created_at_fr FROM posts WHERE id = ?');
     $req->execute(array($postId));
     $post = $req->fetch();
 
